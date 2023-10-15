@@ -26,6 +26,9 @@ def export_calendar() -> None:
 
     start_date, end_date = get_start_and_end_dates()
 
+    if end_date < start_date:
+        raise ValueError("Invalid date range: End date must be after start date.")
+
     filename = input(
         "Please enter a filename for your calendar file (default: 'mycalendar'): "
     )
